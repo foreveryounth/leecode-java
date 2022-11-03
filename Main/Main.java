@@ -1,16 +1,13 @@
 package Main;
 
-import _438_Find_All_Anagrams_in_a_String.Solution;
+import _32_Longest_Valid_Parentheses.Solution;
 
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        //int[] nums = new int[]{1};
-        //System.out.println(solution.removeDuplicates(nums));
-        //int len = solution.removeDuplicates(nums);
-        //int[] res = solution.searchRange(nums, 1);
-        System.out.println(solution.findAnagrams("cbaebabacd",
-                "abc"));
+        int[] nums = {1, 3, 2};
+        int res = solution.longestValidParentheses("()()))))()()(");
+        System.out.println(res);
     }
 
     public int binarySearchOne() {
@@ -27,5 +24,20 @@ public class Main {
                 left = mid + 1;
         }
         return right;
+    }
+
+    public void binarySearch() {
+        int[] nums = {9, 8, 7, 6, 5, 4, 3};
+        int l = 2, r = 5, target = 7;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] < target) {
+                r = mid - 1;
+            } else if (nums[mid] > target) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
     }
 }
